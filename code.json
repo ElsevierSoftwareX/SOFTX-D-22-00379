@@ -1,0 +1,49 @@
+[
+  {
+    "name": "iBluff",
+    "organization": "U.S. Geological Survey",
+    "description": "Geomorphic Analysis of Coastal Bluffs/Cliffs",
+    "version": "1.0",
+    "status": "Production",
+
+    "permissions": {
+      "usageType": "openSource",
+      "licenses": [
+        {
+          "name": "Public Domain, CC0-1.0",
+          "URL": "https://code.usgs.gov/gmegsc/ibluff/-/raw/master/LICENSE.md"
+        }
+      ]
+    },
+
+    "homepageURL": "https://code.usgs.gov/gmegsc/ibluff/-/tree/master",
+    "downloadURL": "https://code.usgs.gov/gmegsc/ibluff/-/archive/master/ibluff-master.zip",
+    "disclaimerURL":"https://code.usgs.gov/gmegsc/ibluff/-/raw/master/DISCLAIMER.md",
+    "repositoryURL": "https://code.usgs.gov/gmegsc/ibluff.git",
+    "vcs": "git",
+
+    "laborHours": 0,
+
+    "tags": [
+      "doi|https://doi.org/10.5066/P9HJ7QHD",
+      "coastal", "bluff", "cliff", "erosion",
+      "morphological analysis",
+      "top", "toe",
+      "beach dune", "dune",
+      "concave", "concavity", "convex", "convexity"
+    ],
+
+    "languages": [
+      "R"
+    ],
+
+    "contact": {
+      "name": "Monica Palaseanu-Lovejoy",
+      "email": "mpal@usgs.gov"
+    },
+
+    "date": {
+      "metadataLastUpdated": "2021-09-06"
+    }
+  }
+]

@@ -1,0 +1,63 @@
+#' Eliminate outliers
+#'
+#' The function uses the box-and-whisker plot within a moving window to eliminate
+#' outliers that are outside 1.5 times the interquartile (IQR) range above the upper
+#' quartile (Q3) and below the lower quartile (Q1) (Q1-1.5*IQR or Q3+1.5*IQR). This function
+#' is intended to eliminate outliers in the bluff/cliff top or toe point shapeline.
+#'
+#' @param pnt.shape - Full path to point shapefile e.g top or toe results from the
+#' get.toptoe function, including the same and .shp file extension, or a data.frame with
+#' the first two columns as coordinates x, and y.
+#'
+#' @param nr.pts - Represents the number of points used to look for outliers.
+#' This represents the "window" in which the box-and-whisker plot is applied.
+#'
+#' @param jump - Represents the number of points the next "window" i+1 jumps from
+#' "window" i. E.g. if first window starts at point index 1 and jump is 5 then next point
+#' will be 6 (1+jump = 6). This ensure that the windows in which the box-and-whisker
+#' plot is applied overlap.
+#'
+#' @return A list of data.frames with x and y coordinates and other attributes that can
+#' be saved as a point and line shapefile when using function make.shape.
+#' @export
+#'
+#' @references - John W. Tukey (1977). Exploratory Data Analysis. Addison-Wesley.
+#' - McGill, R., Tukey, J. W. and Larsen, W. A. (1978) Variations of box plots. The American Statistician 32, 12-16.
+#'
+#' @examples
+#' # Do not run
+#' # dir.tops is the full path to the directory where the bluff/cliff top point shapefiles where saved.
+#' #
+#' # pnt.top<-list.files(path=dir.tops,pattern="points.shp", full.names=TRUE)
+#' # n12 <- length(pnt.top)
+#' # comb.n12<- combn(1:n12,1)
+#' #
+#' # tops.nout <- apply(comb.n12, 2, function(x)
+#' #   iFilter(pnt.top[[x]], 20, 18))
+#' #
+
+iFilter <- function(pnt.shape, nr.pts, jump){
+
+  if(is.character(pnt.shape)) top <- shape.read(pnt.shape) else top <- pnt.shape
+
+  xy <- base::as.data.frame(top)
+
+  k<- seq(1, dim(xy)[1], jump)
+  n <- dim(xy)[1]
+  p <- length(k)
+
+  combp <- utils::combn(1:p, 1)
+
+  xy1 <- apply(combp, 2, function(i) if(k[i]+nr.pts <= n)
+    xy1 <- xy[k[i]:(k[i]+nr.pts),] else xy[k[i]:n,])
+
+  xy1 <- apply(combp, 2, function(x) out1(xy1[[x]]))
+
+  xy2 <- base::as.data.frame(data.table::rbindlist(xy1))
+
+  xy1 <- unique(xy2)
+  xy1 <- xy1[,1:6]
+
+  return(xy1)
+
+}

@@ -1,0 +1,24 @@
+iBluff - Geomorphic Analysis of Coastal Bluffs/Cliffs
+
+The iBluff package in the R language provides an environment for conducting morphological 
+analysis of coastal bluffs / cliffs and offers an automatic and reproducible 
+alternative for identifying top and toe instead of hand digitizing. This package 
+extracts elevation profiles along automatically identified pseudo-perpendicular 
+transects on the bluff face, bluff/cliff top, toe, secondary inflections, relative 
+concavity/convexity of bluff/cliff face, and beach dunes (dune crests and troughs) 
+without knowing a priori the number of dunes to be identified. 
+The justification for the iBluff package is that automatic procedures are fully
+reproducible and comparable, resulting in comprehensive features derived independently
+of human skill. The positions of coastal bluff/cliff tops and toes are considered 
+key indicators of bluff/cliff erosion and the quantification of bluff/cliff retreat 
+rates is vital for stakeholders who manage coastal protection and land use. Automatic 
+extraction of bluff/cliff top and toe positions from topographic data will provide 
+valuable constraints on coastal dynamics that will aid planning decisions, particularly 
+where multitemporal data are available, and thus facilitate better understanding of 
+coastal change. 
+
+------------------------------------------------------------------------------------------
+Point of Contact:  Monica Palaseanu-Lovejoy
+Originator:        Monica Palaseanu-Lovejoy
+GitLab Repository: https://code.usgs.gov/mpal/ibluff.git
+USGS Scientific Topic Keyword: Natural Hazards

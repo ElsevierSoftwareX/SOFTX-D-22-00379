@@ -1,0 +1,33 @@
+Package: iBluff
+Title: Morphological Analysis of Coastal Bluffs/Cliffs
+Version: 1.0
+Authors@R: 
+    person(given = "Monica",
+           family = "Palaseanu-Lovejoy",
+           role = c("aut", "cre"),
+           email = "mpal@usgs.gov",
+           comment = c(ORCID = "0000-0002-3786-5118"))
+Description: Morphological Analysis of Coastal Bluffs/Cliffs using transects pseudo-perpendicular on bluff/cliff face.
+License: CC0
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Imports: 
+    sp,
+    rgdal,
+    rgeos,
+    stringr,
+    data.table,
+    zoo,
+    raster,
+    methods,
+    stats,
+    graphics,
+    utils
+Copyright: This software is in the public domain because it contains materials that
+  originally came from the United States Geological Survey, an agency of the
+  United States Department of Interior. For more information, see the official
+  USGS copyright policy at
+  https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits
+NeedsCompilation: no
+URL: https://doi.org/10.5066/P9HJ7QHD
